@@ -17,7 +17,7 @@ import (
 	semconv "go.opentelemetry.io/otel/semconv/v1.7.0"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/brbranch/go-gae-logger/logger/internal"
+	"github.com/brbranch/go-gae-logger/logger/model"
 )
 
 // OpenTelemetryProvider implements Provider interface that provide OpenTelemetry Tracer.
@@ -32,9 +32,9 @@ func Create(traceName string, projectId string) *OpenTelemetryProvider {
 	return &OpenTelemetryProvider{name: traceName, projectId: projectId, isLocal: false}
 }
 
-func (o *OpenTelemetryProvider) GetSpan(ctx context.Context) *internal.Span {
+func (o *OpenTelemetryProvider) GetSpan(ctx context.Context) *model.Span {
 	span := trace.SpanFromContext(ctx).SpanContext()
-	return &internal.Span{
+	return &model.Span{
 		SpanID:  span.SpanID().String(),
 		TraceID: span.TraceID().String(),
 		Valid:   span.IsValid(),
