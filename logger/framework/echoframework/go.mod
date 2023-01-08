@@ -2,10 +2,8 @@ module github.com/brbranch/go-gae-logger/logger/framework/echoframework
 
 go 1.19
 
-replace github.com/brbranch/go-gae-logger => ../../../
-
 require (
-	github.com/brbranch/go-gae-logger v0.0.0-00010101000000-000000000000
+	github.com/brbranch/go-gae-logger v0.0.1
 	github.com/labstack/echo/v4 v4.10.0
 )
 
