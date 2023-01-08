@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/brbranch/go-gae-logger/logger/internal"
+	"github.com/brbranch/go-gae-logger/logger/model"
 	"github.com/brbranch/go-gae-logger/logger/provider"
 )
 
@@ -119,13 +119,13 @@ func Fatalf(ctx context.Context, format string, args ...interface{}) {
 	logger.Fatalf(ctx, format, args...)
 }
 
-func (l *Logger) build(ctx context.Context, level Level, format string, args ...interface{}) *internal.Payload {
-	var source *internal.SourceLocation = nil
+func (l *Logger) build(ctx context.Context, level Level, format string, args ...interface{}) *model.Payload {
+	var source *model.SourceLocation = nil
 	var spanId, traceId, projectId string
 	if l.caller >= 0 {
 		pc, file, line, ok := runtime.Caller(l.caller)
 		if ok {
-			source = &internal.SourceLocation{
+			source = &model.SourceLocation{
 				File:     filepath.Base(file),
 				Line:     line,
 				Function: runtime.FuncForPC(pc).Name(),
@@ -142,7 +142,7 @@ func (l *Logger) build(ctx context.Context, level Level, format string, args ...
 		}
 		projectId = pv.ProjectID()
 
-		return &internal.Payload{
+		return &model.Payload{
 			Time:           time.Now(),
 			SpanID:         spanId,
 			Trace:          traceId,
@@ -152,7 +152,7 @@ func (l *Logger) build(ctx context.Context, level Level, format string, args ...
 		}
 	}
 
-	return &internal.Payload{
+	return &model.Payload{
 		Time:           time.Now(),
 		Message:        fmt.Sprintf(format, args...),
 		Severity:       level.String(),
