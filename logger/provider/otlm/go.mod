@@ -1,4 +1,4 @@
-module github.com/brbranch/go-gae-logger/provider/otlm
+module github.com/brbranch/go-gae-logger/logger/provider/otlm
 
 go 1.19
 
