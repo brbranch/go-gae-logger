@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace v1.10.2
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/propagator v0.34.2
-	github.com/brbranch/go-gae-logger v0.0.1
+	github.com/brbranch/go-gae-logger v0.0.2
 	go.opentelemetry.io/contrib/detectors/gcp v1.12.0
 	go.opentelemetry.io/otel v1.11.2
 	go.opentelemetry.io/otel/sdk v1.11.2
