@@ -3,7 +3,7 @@ module github.com/brbranch/go-gae-logger/logger/framework/echoframework
 go 1.20
 
 require (
-	github.com/brbranch/go-gae-logger v0.0.3
+	github.com/brbranch/go-gae-logger v0.0.2
 	github.com/labstack/echo/v4 v4.11.3
 )
 
